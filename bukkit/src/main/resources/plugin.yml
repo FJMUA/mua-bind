@@ -1,0 +1,12 @@
+name: MuaBind
+main: cn.fjmua.mc.plugin.bind.MuaBindBukkit
+version: 1.0.0
+
+author: IllTamer
+
+softdepend: []
+
+commands:
+  MuaBind:
+    aliases:
+      - mb
