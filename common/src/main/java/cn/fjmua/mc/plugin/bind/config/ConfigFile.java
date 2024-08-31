@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -87,6 +88,10 @@ public class ConfigFile {
      * */
     public void reload() {
         this.config = this.load();
+    }
+
+    public <T> T getConfig(Class<T> clazz) {
+        return gson.fromJson(config, clazz);
     }
 
 }

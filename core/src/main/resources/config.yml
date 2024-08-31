@@ -1,0 +1,92 @@
+
+storage:
+  # 储存类型
+  # - sqlite
+  # - mysql (需要完善 storage.mysql 配置)
+  type: 'sqlite'
+  mysql:
+    host: 'localhost'
+    port: 3306
+    db: mc
+    username: root
+    password: 123456
+
+# 默认学校名称
+default-school: "MUA"
+
+# 学校 邮箱域名-名称 映射
+school-map: {
+  "10007.mua": "北京大学",
+  "10054.mua": "中国人民大学",
+  "10078.mua": "北京航空航天大学",
+  "10081.mua": "北京理工大学",
+  "10086.mua": "北京邮电大学",
+  "10145.mua": "北京师范大学",
+  "10153.mua": "中央民族大学",
+  "10225.mua": "东北林业大学",
+  "10286.mua": "华东师范大学",
+  "10291.mua": "上海大学",
+  "10293.mua": "华东理工大学",
+  "10298.mua": "同济大学",
+  "10385.mua": "复旦大学",
+  "10388.mua": "上海交通大学",
+  "10394.mua": "东华大学",
+  "10410.mua": "南京大学",
+  "10491.mua": "东南大学",
+  "10588.mua": "中国科学技术大学",
+  "10614.mua": "山东大学",
+  "10615.mua": "中国海洋大学",
+  "10616.mua": "山东师范大学",
+  "10702.mua": "华南理工大学",
+  "10757.mua": "中山大学",
+  "10856.mua": "西北工业大学",
+  "11481.mua": "重庆大学",
+  "11535.mua": "四川大学",
+  "11688.mua": "西南交通大学",
+  "12957.mua": "兰州大学",
+  "13763.mua": "云南大学",
+  "bit.edu.cn": "北京理工大学",
+  "buaa.edu.cn": "北京航空航天大学",
+  "cauc.edu.cn": "中国民航大学",
+  "csu.edu.cn": "中南大学",
+  "email.ncu.edu.cn": "南昌大学",
+  "email.szu.edu.cn": "深圳大学",
+  "fzu.edu.cn": "福州大学",
+  "hust.edu.cn": "华中科技大学",
+  "m.fudan.edu.cn": "复旦大学",
+  "mail.dlut.edu.cn": "大连理工大学",
+  "mail.ecust.edu.cn": "华东理工大学",
+  "mail.imu.edu.cn": "内蒙古大学",
+  "mail.nankai.edu.cn": "南开大学",
+  "mail.nwpu.edu.cn": "西北工业大学",
+  "mail.sdu.edu.cn": "山东大学",
+  "mail.ustc.edu.cn": "中国科学技术大学",
+  "mail2.sysu.edu.cn": "中山大学",
+  "mails.jlu.edu.cn": "吉林大学",
+  "mails.tsinghua.edu.cn": "清华大学",
+  "ncepu.edu.cn": "华北电力大学",
+  "njfu.edu.cn": "南京林业大学",
+  "njtech.edu.cn": "南京工业大学",
+  "njupt.edu.cn": "南京邮电大学",
+  "nuist.edu.cn": "南京信息工程大学",
+  "sdtbu.edu.cn": "山东科技大学",
+  "seu.edu.cn": "东南大学",
+  "shanghaitech.edu.cn": "上海科技大学",
+  "sjtu.edu.cn": "上海交通大学",
+  "smail.nju.edu.cn": "南京大学",
+  "st.gxu.edu.cn": "广西大学",
+  "std.uestc.edu.cn": "电子科技大学",
+  "stu.ecnu.edu.cn": "华东师范大学",
+  "stu.ncwu.edu.cn": "华北水利水电大学",
+  "stu.ouc.edu.cn": "中国海洋大学",
+  "stu.pku.edu.cn": "北京大学",
+  "stu.xidian.edu.cn": "西安电子科技大学",
+  "stu.xjtu.edu.cn": "西安交通大学",
+  "stu.xmu.edu.cn": "厦门大学",
+  "stu.zjweu.edu.cn": "浙江万里学院",
+  "student.fjnu.edu.cn": "福建师范大学",
+  "stumail.taru.edu.cn": "塔里木大学",
+  "sues.edu.cn": "上海工程技术大学",
+  "tongji.edu.cn": "同济大学",
+  "zju.edu.cn": "浙江大学"
+}
