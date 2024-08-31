@@ -43,6 +43,6 @@ public interface PlayerBindDAO {
 
     List<PlayerBind> findAll();
 
-    void tryCreateTable(@NotNull DataSourceType type);
+    void tryCreateTable(@NotNull StorageType type);
 
 }

@@ -1,5 +1,7 @@
-package cn.fjmua.mc.plugin.bind.dal;
+package cn.fjmua.mc.plugin.bind.dal.impl;
 
+import cn.fjmua.mc.plugin.bind.dal.StorageType;
+import cn.fjmua.mc.plugin.bind.dal.PlayerBindDAO;
 import cn.fjmua.mc.plugin.bind.pojo.PlayerBind;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -96,11 +98,11 @@ public class PlayerBindDAOImpl implements PlayerBindDAO {
     }
 
     @Override
-    public void tryCreateTable(@NotNull DataSourceType type) {
+    public void tryCreateTable(@NotNull StorageType type) {
         String sql;
-        if (type == DataSourceType.MYSQL) {
+        if (type == StorageType.MYSQL) {
             sql = SQL_CREATE_MYSQL_TABLE;
-        } else if (type == DataSourceType.SQLITE) {
+        } else if (type == StorageType.SQLITE) {
             sql = SQL_CREATE_SQLITE_TABLE;
         } else {
 
