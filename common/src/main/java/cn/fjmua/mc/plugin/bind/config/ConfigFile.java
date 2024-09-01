@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
@@ -15,6 +16,8 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -43,7 +46,7 @@ public class ConfigFile {
 
         Path configFilePath = configFolder.resolve(name);
         if (!Files.exists(configFilePath)) {
-            try (InputStream in = getClass().getResourceAsStream(name)) {
+            try (InputStream in = getResource(name)) {
                 if (in == null) {
                     throw new RuntimeException("Unknown resource file: " + name);
                 }
@@ -60,6 +63,21 @@ public class ConfigFile {
                 throw new IllegalStateException("YAML root is not a JSON object in file: " + name);
             }
             return element.getAsJsonObject();
+        }
+    }
+
+    public InputStream getResource(@NotNull String filename) {
+        try {
+            URL url = getClass().getClassLoader().getResource(filename);
+            if (url == null) {
+                return null;
+            } else {
+                URLConnection connection = url.openConnection();
+                connection.setUseCaches(false);
+                return connection.getInputStream();
+            }
+        } catch (IOException ignore) {
+            return null;
         }
     }
 

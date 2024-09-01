@@ -1,4 +1,21 @@
+# mua API 配置 [可重载]
+# 下列默认配置的 url 均为 mua 官方 api
+# 如有需求可替换成自己的 API 地址
+api:
+  query-email-by-uuid: "https://skin.mualliance.ltd/api/union/profile/email/byuuid/%s"
 
+# 设置 API 调用的请求头 [可重载]
+http-request-header: {
+  "Accept": "application/json",
+  "Authorization": "Bearer 123456"
+}
+
+# 是否启用代理端兼容模式
+#   当使用 `velocity` 代理端并需要配置跨服数据互通时，请修改 `storage` 配置，使
+#   各子服的插件连接到 同一个MySQL数据库, 并将以下设置配置为 true
+velocity: false
+
+# 数据储存设置
 storage:
   # 储存类型
   # - sqlite
@@ -11,10 +28,21 @@ storage:
     username: root
     password: 123456
 
-# 默认学校名称
-default-school: "MUA"
+# 插件 Hook 设置 [可重载]
+hook:
+  # PlaceholderAPI / LuckPerms
+  # 默认学校名称变量
+  default-school: "MUA"
+  # LuckPerms
+  # 增加玩家权限节点前缀
+  # 示例:
+  # 1. 玩家邮箱后缀为 '10007.mua' 对应 '北京大学'
+  # 2. 配置 'permission-node-prefix: mua.bind.title.'
+  # 3. 则玩家在进入服务器时将自动新增权限组
+  #    'mua.bind.title.10007.mua' 和 'mua.bind.title.北京大学'
+  permission-node-prefix: "mua.bind.title."
 
-# 学校 邮箱域名-名称 映射
+# 学校 邮箱域名-名称 映射 [可重载]
 school-map: {
   "10007.mua": "北京大学",
   "10054.mua": "中国人民大学",

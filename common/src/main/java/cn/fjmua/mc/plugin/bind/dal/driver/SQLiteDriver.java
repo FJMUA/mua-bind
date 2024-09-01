@@ -1,27 +1,26 @@
 package cn.fjmua.mc.plugin.bind.dal.driver;
 
-import cn.fjmua.mc.plugin.bind.api.MuaBindStatic;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
 import java.nio.file.Path;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
+@Slf4j
 public class SQLiteDriver {
 
-    public static Connection getConnection() throws SQLException {
-        Path path = MuaBindStatic.getInstance().getPluginDirPath();
-        String dirPath = path.toAbsolutePath().toString();
-        return DriverManager.getConnection(String.format("jdbc:sqlite:%s/sqlite.db", dirPath));
+    static {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            log.error("SQLite driver init error", e);
+        }
     }
 
-    public static DataSource getDataSource() {
+    public static DataSource getDataSource(Path path) {
         HikariConfig config = new HikariConfig();
         config.setMaximumPoolSize(5);
-        Path path = MuaBindStatic.getInstance().getPluginDirPath();
         String dirPath = path.toAbsolutePath().toString();
         config.setJdbcUrl(String.format("jdbc:sqlite:%s/sqlite.db", dirPath));
         return new HikariDataSource(config);
