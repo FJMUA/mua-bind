@@ -4,7 +4,9 @@ version: 1.0.0
 
 author: IllTamer
 
-softdepend: []
+softdepend:
+  - PlaceholderAPI
+  - LuckPerms
 
 commands:
   MuaBind:
