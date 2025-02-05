@@ -50,6 +50,12 @@ public class UUIDCache {
                         }
 
                         QueryEmailResponse response = API.QUERY_EMAIL_BY_UUID.invoke(QueryEmailResponse.class, uuidStr.replace("-", ""));
+                        if (response == null) {
+                            throw new RuntimeException("API 调用失败，请检查接口地址或升级插件版本");
+                        }
+                        if (response.getError() != null) {
+                            throw new IllegalArgumentException(response.getErrorMessage());
+                        }
                         playerBind = new PlayerBind();
                         playerBind.setUuid(uuidStr);
                         playerBind.setEmailDomain(response.getEmailDomain());

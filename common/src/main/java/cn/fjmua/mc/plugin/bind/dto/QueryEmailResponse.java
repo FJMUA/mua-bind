@@ -12,4 +12,8 @@ public class QueryEmailResponse {
     @SerializedName("email_domain")
     private String emailDomain;
 
+    private String error;
+
+    private String errorMessage;
+
 }
