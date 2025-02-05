@@ -26,6 +26,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
